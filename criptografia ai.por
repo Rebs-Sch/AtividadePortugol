@@ -10,6 +10,7 @@ programa
 		inteiro chave
 		cadeia texto
 		inteiro escolh
+		inteiro SouN
 		
 		escreva ("Você deseja descriptografar ou criptografar?\n 1- descriptografar\n 2 - criptografar\n ")
 		leia(escolh)
@@ -20,12 +21,25 @@ programa
 			escreva ("e qual a chave?\n")
 			leia(chave)
 			criptografar(texto, chave)}
+		
 		senao se(escolh == 1){
 			escreva ("\nque frase você deseja descriptografar?\n")
 			leia(texto)
-			escreva ("e qual a chave?\n")
+			escreva("\nvocê tem a chave para esta criptografia?\n 1 - sim\n 2 - não\n")
+			leia(SouN)
+		
+			se(SouN == 1){
+			escreva ("qual a chave?\n")
 			leia(chave)
 			desincriptar(texto, chave)}
+			
+			senao se(SouN == 2){
+			
+				para (inteiro i = 1; i < 26; i++){
+					desincriptar(texto, i)
+					escreva("\n")}
+			} 
+		}
 	}
 	funcao criptografar(cadeia texto, inteiro chave){
 
@@ -88,14 +102,3 @@ programa
 	escreva(letra)}}
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 610; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {alfabeto, 6, 14, 8};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
